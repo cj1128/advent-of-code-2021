@@ -1,5 +1,4 @@
 import { readAllSync } from "https://deno.land/std@0.116.0/streams/conversion.ts"
-import { assert } from "https://deno.land/std@0.116.0/testing/asserts.ts"
 
 interface Command {
   type: "up" | "down" | "forward"
@@ -23,7 +22,6 @@ function parseLine(line: string): Command {
   throw new Error(`invalid line: ${line}`)
 }
 
-// input is not so big, a few K lines, so a full read is not a big deal
 const input = new TextDecoder().decode(readAllSync(Deno.stdin))
 const cmds = input.trim().split("\n").map(parseLine)
 
