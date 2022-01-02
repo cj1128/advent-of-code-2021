@@ -1,9 +1,11 @@
 import { readAllSync } from "https://deno.land/std@0.116.0/streams/conversion.ts"
 
-type BitResult = Record<string, number>
+// [count of 0, count of 1]
+type BitCount = number[]
 
 // An array, first one is the bit sum of all bits in position 0 (from left to right)
-type ParsedResult = BitResult[]
+
+type ParsedResult = BitCount[]
 
 function parse(numStrs: string[]): ParsedResult {
   const result: ParsedResult = []
@@ -11,13 +13,13 @@ function parse(numStrs: string[]): ParsedResult {
 
   // initialize the result
   for (let i = 0; i < bitCount; i++) {
-    result.push({ 0: 0, 1: 0 })
+    result.push([0, 0])
   }
 
   for (const line of numStrs) {
     const bits = line.split("")
     bits.forEach((bit, idx) => {
-      result[idx][bit]++
+      result[idx][parseInt(bit)]++
     })
   }
 
