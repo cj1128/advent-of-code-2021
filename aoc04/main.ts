@@ -109,7 +109,7 @@ function part1(parsed: Parsed) {
 }
 
 function part2(parsed: Parsed) {
-  const boards = [...parsed.boards] // shallow copy
+  const boards = [...parsed.boards]
 
   // add index to board
   boards.forEach((b, i) => ((b as any).index = i))
