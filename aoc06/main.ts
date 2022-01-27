@@ -62,7 +62,8 @@ const input = new TextDecoder()
   .map(Number)
 const init = new State(input)
 
-function run(init: State, days: number) {
+// this is the old solution
+function oldRun(init: State, days: number) {
   let state = init.copy()
   let next = state.copy()
 
@@ -87,8 +88,23 @@ function run(init: State, days: number) {
   console.log(state.toString(), state.total())
 }
 
-// part 1: 350917
-// run(init, 80)
+// a better solution
+function run(input: number[], days: number) {
+  const fishes = new Array(9).fill(0)
+  input.forEach((x) => fishes[x]++)
 
-// part 2:
-run(init, 256)
+  for (let i = 0; i < days; i++) {
+    const newCount = fishes.shift()
+    fishes.push(newCount)
+    fishes[6] += newCount
+  }
+
+  const total = fishes.reduce((a, b) => a + b)
+  console.log(total)
+}
+
+// part 1: 350917
+// run(input, 80)
+
+// part 2: 1592918715629
+run(input, 256)
