@@ -1,4 +1,4 @@
-import { readAllSync } from "https://deno.land/std@0.116.0/streams/conversion.ts"
+import { readStdin } from "../depts.ts"
 
 class State {
   _state: Record<string, number>
@@ -56,10 +56,7 @@ class State {
   }
 }
 
-const input = new TextDecoder()
-  .decode(readAllSync(Deno.stdin))
-  .split(",")
-  .map(Number)
+const input = readStdin().split(",").map(Number)
 const init = new State(input)
 
 // this is the old solution

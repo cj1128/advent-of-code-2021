@@ -1,6 +1,6 @@
-import { readAllSync } from "https://deno.land/std@0.116.0/streams/conversion.ts"
+import { readStdin } from "../depts.ts"
 
-const input = new TextDecoder().decode(readAllSync(Deno.stdin)).trim()
+const input = readStdin()
 const graph = parseGraph(parseEdges(input))
 
 // console.log(graph)

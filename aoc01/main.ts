@@ -1,8 +1,8 @@
-import { readAllSync } from "https://deno.land/std@0.116.0/streams/conversion.ts"
-import { assert } from "https://deno.land/std@0.116.0/testing/asserts.ts"
+import { readStdin } from "../depts.ts"
+import { assert } from "../depts.ts"
 
 // input is not so big, a few K lines, so a full read is not a big deal
-const input = new TextDecoder().decode(readAllSync(Deno.stdin))
+const input = readStdin()
 const nums = input.trim().split("\n").map(Number)
 
 // 1754

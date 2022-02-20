@@ -1,4 +1,4 @@
-import { readAllSync } from "https://deno.land/std@0.116.0/streams/conversion.ts"
+import { readStdin } from "../depts.ts"
 
 interface Command {
   type: "up" | "down" | "forward"
@@ -22,7 +22,7 @@ function parseLine(line: string): Command {
   throw new Error(`invalid line: ${line}`)
 }
 
-const input = new TextDecoder().decode(readAllSync(Deno.stdin))
+const input = readStdin()
 const cmds = input.trim().split("\n").map(parseLine)
 
 // depth: 786, horizontal position: 2199, result: 1728414

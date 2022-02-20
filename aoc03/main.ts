@@ -1,4 +1,4 @@
-import { readAllSync } from "https://deno.land/std@0.116.0/streams/conversion.ts"
+import { readStdin } from "../depts.ts"
 
 // [count of 0, count of 1]
 type BitCount = number[]
@@ -26,7 +26,7 @@ function parse(numStrs: string[]): ParsedResult {
   return result
 }
 
-const input = new TextDecoder().decode(readAllSync(Deno.stdin))
+const input = readStdin()
 const numStrs = input.trim().split("\n")
 const parsed = parse(numStrs)
 

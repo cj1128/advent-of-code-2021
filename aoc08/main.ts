@@ -1,5 +1,4 @@
-import { readAllSync } from "https://deno.land/std@0.116.0/streams/conversion.ts"
-import { assert } from "https://deno.land/std@0.116.0/testing/asserts.ts"
+import { readStdin, assert } from "../depts.ts"
 
 interface Example {
   patterns: string[]
@@ -197,7 +196,7 @@ function part2(examples: Example[]) {
   console.log(result)
 }
 
-const input = new TextDecoder().decode(readAllSync(Deno.stdin)).trim()
+const input = readStdin()
 const parsed = parse(input)
 
 // 449

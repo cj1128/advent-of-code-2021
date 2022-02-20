@@ -1,4 +1,4 @@
-import { readAllSync } from "https://deno.land/std@0.116.0/streams/conversion.ts"
+import { readStdin } from "../depts.ts"
 
 function range(len: number): number[] {
   return new Array(len).fill(0).map((_, idx) => idx)
@@ -31,7 +31,7 @@ const parseInput = (str: string): Parsed => {
   return { nums, boards }
 }
 
-const input = new TextDecoder().decode(readAllSync(Deno.stdin))
+const input = readStdin()
 const parsed = parseInput(input)
 
 // console.log(parsed)

@@ -1,4 +1,4 @@
-import { readAllSync } from "https://deno.land/std@0.116.0/streams/conversion.ts"
+import { readStdin } from "../depts.ts"
 
 type Point = number[] // [x, y]
 
@@ -76,7 +76,7 @@ function parseInput(str: string): Line[] {
     .map((line) => new Line(line))
 }
 
-const input = new TextDecoder().decode(readAllSync(Deno.stdin))
+const input = readStdin()
 const lines = parseInput(input)
 
 // 5

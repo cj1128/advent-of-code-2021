@@ -1,7 +1,6 @@
-import { readAllSync } from "https://deno.land/std@0.116.0/streams/conversion.ts"
-import { assert } from "https://deno.land/std@0.116.0/testing/asserts.ts"
+import { readStdin, assert } from "../depts.ts"
 
-const input = new TextDecoder().decode(readAllSync(Deno.stdin)).trim()
+const input = readStdin()
 
 type Matrix = number[][]
 
