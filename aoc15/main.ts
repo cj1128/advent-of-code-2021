@@ -161,6 +161,7 @@ function part2(input: number[][]) {
 
   const enlarged = []
 
+  // enlarge input
   for (let y = 0; y < Y * 5; y++) {
     const row: number[] = []
     enlarged.push(row)
@@ -174,7 +175,7 @@ function part2(input: number[][]) {
     }
   }
 
-  part1(enlarged)
   // console.log(enlarged)
-  // enlarge input
+
+  part1(enlarged)
 }
