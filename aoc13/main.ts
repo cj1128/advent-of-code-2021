@@ -1,5 +1,5 @@
-import { readStdin } from "../depts.ts"
-import { assert } from "../depts.ts"
+import { readStdin } from "../deps.ts"
+import { assert } from "../deps.ts"
 
 const input = readStdin()
 const parsed = parse(input)

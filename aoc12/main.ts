@@ -1,4 +1,4 @@
-import { readStdin } from "../depts.ts"
+import { readStdin } from "../deps.ts"
 
 const input = readStdin()
 const graph = parseGraph(parseEdges(input))

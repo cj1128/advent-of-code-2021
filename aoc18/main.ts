@@ -1,4 +1,4 @@
-import { readStdin, assertEquals } from "../depts.ts"
+import { readStdin, assertEquals } from "../deps.ts"
 
 type SFEle = SFNum | number
 type SFNum = [SFEle, SFEle]
@@ -66,6 +66,8 @@ function findRegularNumber(
 
   if (dir === "left") return findMostRightNumber(num, base)
   if (dir === "right") return findMostLeftNumber(num, base)
+
+  return null
 }
 
 // set SFEle at the given coordinate

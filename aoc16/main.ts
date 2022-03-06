@@ -1,4 +1,4 @@
-import { readStdin, assertEquals } from "../depts.ts"
+import { readStdin, assertEquals } from "../deps.ts"
 
 class BitReader {
   bits: string

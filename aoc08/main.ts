@@ -1,4 +1,4 @@
-import { readStdin, assert } from "../depts.ts"
+import { readStdin, assert } from "../deps.ts"
 
 interface Example {
   patterns: string[]

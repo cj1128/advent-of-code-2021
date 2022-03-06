@@ -1,4 +1,4 @@
-import { readStdin } from "../depts.ts"
+import { readStdin } from "../deps.ts"
 
 class State {
   _state: Record<string, number>

@@ -1,4 +1,4 @@
-import { readStdin } from "../depts.ts"
+import { readStdin } from "../deps.ts"
 
 function range(len: number): number[] {
   return new Array(len).fill(0).map((_, idx) => idx)

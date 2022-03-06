@@ -1,4 +1,4 @@
-import { readStdin } from "../depts.ts"
+import { readStdin } from "../deps.ts"
 
 // [count of 0, count of 1]
 type BitCount = number[]

@@ -1,4 +1,4 @@
-import { readStdin, assert } from "../depts.ts"
+import { readStdin, assert } from "../deps.ts"
 import { PriorityQueue } from "../priority-queue.ts"
 
 const input = readStdin()

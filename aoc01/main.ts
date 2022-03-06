@@ -1,5 +1,5 @@
-import { readStdin } from "../depts.ts"
-import { assert } from "../depts.ts"
+import { readStdin } from "../deps.ts"
+import { assert } from "../deps.ts"
 
 // input is not so big, a few K lines, so a full read is not a big deal
 const input = readStdin()
