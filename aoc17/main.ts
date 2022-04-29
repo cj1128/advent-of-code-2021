@@ -53,6 +53,7 @@ function calcMaxY(vy: number) {
   return (vy * (vy + 1)) / 2
 }
 
+// key fact 0: when y = 0, vy would be -initialY - 1, e.g. initialY=3, then when y=0, vy=-4
 // key fact 1: if region.maxY < 0, then vy range is [region.minY, -region.minY - 1]
 // key fact 2: start with vx, the final x position would be vx(vx+1)/2
 function part1(region: Region) {
