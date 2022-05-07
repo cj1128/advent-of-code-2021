@@ -6,3 +6,7 @@ export {
 
 export const readStdin = () =>
   new TextDecoder().decode(readAllSync(Deno.stdin)).trim()
+
+export * as math from "https://cdn.skypack.dev/mathjs"
+
+export * as _ from "https://cdn.skypack.dev/lodash"
