@@ -145,7 +145,68 @@ function part2(parsed: Parsed) {
   console.log(p1Win, p2Win)
 }
 
+// Using memo runs faster.
+function part2Memo(parsed: Parsed) {
+  const TARGET = 21
+
+  const universes = [1, 2, 3]
+    .map((l1) => [1, 2, 3].map((l2) => [1, 2, 3].map((l3) => l1 + l2 + l3)))
+    .flat(2)
+  const universesValueCount: [number, number][] = Object.entries(
+    _.countBy(universes)
+  ).map(([val, count]) => [Number(val), count]) as any
+
+  const memo: Record<string, { p1: number; p2: number }> = {}
+
+  function recur(
+    p1Pos: number,
+    p1Score: number,
+    p2Pos: number,
+    p2Score: number,
+    isP1Turn: boolean
+  ) {
+    const key = `${p1Pos}.${p1Score}.${p2Pos}.${p2Score}.${isP1Turn}`
+    if (memo[key] != null) {
+      return memo[key]
+    }
+
+    const result = { p1: 0, p2: 0 }
+    memo[key] = result
+
+    for (const [num, count] of universesValueCount) {
+      if (isP1Turn) {
+        const nextP1Pos = move(p1Pos, num)
+        const nextP1Score = p1Score + nextP1Pos
+
+        if (nextP1Score >= TARGET) {
+          result.p1 += count
+        } else {
+          const sub = recur(nextP1Pos, nextP1Score, p2Pos, p2Score, !isP1Turn)
+          result.p1 += sub.p1 * count
+          result.p2 += sub.p2 * count
+        }
+      } else {
+        const nextP2Pos = move(p2Pos, num)
+        const nextP2Score = p2Score + nextP2Pos
+        if (nextP2Score >= TARGET) {
+          result.p2 += count
+        } else {
+          const sub = recur(p1Pos, p1Score, nextP2Pos, nextP2Score, !isP1Turn)
+          result.p1 += sub.p1 * count
+          result.p2 += sub.p2 * count
+        }
+      }
+    }
+
+    return result
+  }
+
+  const result = recur(parsed.p1, 0, parsed.p2, 0, true)
+  console.log(result)
+}
+
 // p1 wins 901 999 900099
 // part1(parsed)
 
-part2(parsed)
+// 306719685234774
+part2Memo(parsed)
