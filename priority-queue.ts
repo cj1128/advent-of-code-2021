@@ -29,6 +29,10 @@ export class PriorityQueue {
     this.items[i] = item
   }
 
+  get isEmpty() {
+    return this.items.length === 1
+  }
+
   pop() {
     // return null for empty
     if (this.items.length === 1) return null

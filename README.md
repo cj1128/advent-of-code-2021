@@ -10,6 +10,12 @@ My code are basically based on this [ruby solution](https://github.com/0x8b/adve
 
 It's slow but it works.
 
+## Day 23
+
+Reference: https://github.com/1e9y/adventofcode/blob/main/2021/day23/day23.go
+
+This day seems very hard at the first glance but it's actually a pathfinding problem and we can use Dijkstra’s algorithm.
+
 ## How to run
 
 - `cd` into the target day
