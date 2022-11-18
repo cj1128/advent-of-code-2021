@@ -1,6 +1,6 @@
 # Advent of Code 2021
 
-This year I am gonna use Deno 🦕.
+This year I am gonna use TypeScript with Deno 🦕.
 
 ## Day 19
 
@@ -14,7 +14,7 @@ It's slow but it works.
 
 Reference: https://github.com/1e9y/adventofcode/blob/main/2021/day23/day23.go
 
-This day seems very hard at the first glance but it's actually a pathfinding problem and we can use Dijkstra’s algorithm.
+This day seems very hard at the first glance but it's actually a path finding problem and we can use Dijkstra’s algorithm to solve it.
 
 ## How to run
 

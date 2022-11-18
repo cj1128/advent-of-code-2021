@@ -163,6 +163,52 @@ function part2(cuboids: Cuboid[]) {
   console.log(result)
 }
 
+// the 'on' field will always be true
+function intersect(a: Cuboid, b: Cuboid): Cuboid | null {
+  const result = {
+    on: true,
+    x1: Math.max(a.x1, b.x1),
+    x2: Math.min(a.x2, b.x2),
+    y1: Math.max(a.y1, b.y1),
+    y2: Math.min(a.y2, b.y2),
+    z1: Math.max(a.z1, b.z1),
+    z2: Math.min(a.z2, b.z2),
+  }
+
+  if (result.x1 > result.x2 || result.y1 > result.y2 || result.z1 > result.z2)
+    return null
+
+  return result
+}
+
+// reference: https://github.com/leyanlo/advent-of-code/blob/main/2021/day-22.js
+function anotherPart2(cuboids: Cuboid[]) {
+  const stage: Cuboid[] = []
+
+  for (const input of cuboids) {
+    for (const cur of [...stage]) {
+      const intersection = intersect(cur, input)
+
+      if (intersection) {
+        stage.push({
+          ...intersection,
+          on: !cur.on,
+        })
+      }
+    }
+
+    if (input.on) {
+      stage.push(input)
+    }
+  }
+
+  const result = stage.reduce(
+    (acc, cur) => acc + (cur.on ? 1 : -1) * getCuboidSize(cur),
+    0
+  )
+  console.log(result)
+}
+
 const cuboids = parse(readStdin())
 
 // 556501
