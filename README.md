@@ -2,6 +2,11 @@
 
 This year I am gonna use TypeScript with Deno 🦕.
 
+## How to run
+
+- `cd` into the target day
+- `deno -A --no-check main.ts < input/input.txt`
+
 ## Day 19
 
 This day is really hard. 3D rotation is so confusing.
@@ -115,8 +120,3 @@ Min number: 51131616112781
 12 truncateZ:true, xInc:-6, yInc:6,  input:8 // pop 14 - 6 = 8
 13 truncateZ:true, xInc:-12, yInc:14,  input:1 // pop 13 - 12 = 1
 ```
-
-## How to run
-
-- `cd` into the target day
-- `deno -A --no-check main.ts < input/input.txt`
