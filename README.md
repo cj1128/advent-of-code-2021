@@ -57,8 +57,7 @@ function tick(input: number, truncateZ: boolean, xInc: number, yInc: number) {
 key facts:
 
 - If `truncateZ` is false, we can see that `xInc` is always >= 10, so condition1 will always be false.
-
-when `truncateZ` is true, if we make condition1 be true, then z must be 0.
+- when `truncateZ` is true, if we make condition1 be true, then z must be 0.
 
 ```
 NOTE: Ix + Yx is always < 26, * denotes that truncateZ is true

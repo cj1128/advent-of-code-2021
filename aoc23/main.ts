@@ -114,12 +114,14 @@ function moveToHallway(burrow: Burrow, pos: Pos): QueueItem[] {
 
   for (const h of hallway) {
     if (h.x < pos.x) {
+      // left side
       if (isBurrowEmpty(burrow, h)) {
         candiates.push(h)
       } else {
         candiates.length = 0
       }
     } else {
+      // right side
       if (isBurrowEmpty(burrow, h)) {
         candiates.push(h)
       } else {
